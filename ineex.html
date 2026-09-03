@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Umaima Eats Hub | Delicious Food Delivered</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-utensils"></i>
+            Umaima <span>Eats Hub</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+        <div class="nav-icons">
+
+            <button class="icon-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button class="cart-btn" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </button>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <p class="small-title">
+            <i class="fa-solid fa-fire"></i>
+            HOT & DELICIOUS
+        </p>
+
+        <h1>
+            Delicious Food
+            <br>
+            Delivered To
+            <span>Your Door!</span>
+        </h1>
+
+        <p>
+            Order your favorite food from the best restaurants.
+            Fast delivery, amazing taste, and happiness in every bite!
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#menu" class="primary-btn">
+                Order Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="#categories" class="secondary-btn">
+                Explore Menu
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <h3>500+</h3>
+                <p>Food Items</p>
+            </div>
+
+            <div>
+                <h3>50K+</h3>
+                <p>Happy Customers</p>
+            </div>
+
+            <div>
+                <h3>30 min</h3>
+                <p>Fast Delivery</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="circle"></div>
+
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+            alt="Delicious Burger">
+
+        <div class="floating-card rating-card">
+            ⭐ 4.9
+            <span>Customer Rating</span>
+        </div>
+
+        <div class="floating-card delivery-card">
+            <i class="fa-solid fa-motorcycle"></i>
+
+            <div>
+                <strong>Fast Delivery</strong>
+                <span>30 Minutes</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input type="text" id="search-input" placeholder="What are you craving today?"
+            onkeyup="searchFood()">
+
+        <button onclick="searchFood()">Search</button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories" id="categories">
+
+    <div class="section-heading">
+
+        <p>CHOOSE YOUR FAVORITE</p>
+
+        <h2>Food Categories</h2>
+
+        <span>
+            Explore delicious food from our popular categories
+        </span>
+
+    </div>
+
+
+    <div class="category-container">
+
+        <div class="category-card active" onclick="filterFood('all', this)">
+            <div class="category-icon">🍽️</div>
+            <h3>All</h3>
+        </div>
+
+        <div class="category-card" onclick="filterFood('pizza', this)">
+            <div class="category-icon">🍕</div>
+            <h3>Pizza</h3>
+        </div>
+
+        <div class="category-card" onclick="filterFood('burger', this)">
+            <div class="category-icon">🍔</div>
+            <h3>Burgers</h3>
+        </div>
+
+        <div class="category-card" onclick="filterFood('chicken', this)">
+            <div class="category-icon">🍗</div>
+            <h3>Chicken</h3>
+        </div>
+
+        <div class="category-card" onclick="filterFood('dessert', this)">
+            <div class="category-icon">🍰</div>
+            <h3>Dessert</h3>
+        </div>
+
+        <div class="category-card" onclick="filterFood('drink', this)">
+            <div class="category-icon">🥤</div>
+            <h3>Drinks</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section class="menu" id="menu">
+
+    <div class="section-heading">
+
+        <p>POPULAR DISHES</p>
+
+        <h2>Our Delicious Menu</h2>
+
+        <span>
+            Freshly prepared and delivered right to your door
+        </span>
+
+    </div>
+
+
+    <div class="food-container">
+
+
+        <!-- FOOD 1 -->
+
+        <div class="food-card" data-category="burger">
+
+            <div class="food-image">
+
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+                    alt="Classic Burger">
+
+                <button class="favorite-btn" onclick="toggleFavorite(this)">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <span class="discount">20% OFF</span>
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+                    <h3>Classic Beef Burger</h3>
+                    <span>⭐ 4.8</span>
+                </div>
+
+                <p>
+                    Juicy beef patty with cheese, lettuce and special sauce.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>Rs. 899</strong>
+
+                    <button onclick="addToCart(
+                        'Classic Beef Burger',
+                        899,
+                        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=80'
+                    )">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOD 2 -->
+
+        <div class="food-card" data-category="pizza">
+
+            <div class="food-image">
+
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80"
+                    alt="Pepperoni Pizza">
+
+                <button class="favorite-btn" onclick="toggleFavorite(this)">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+                    <h3>Pepperoni Pizza</h3>
+                    <span>⭐ 4.9</span>
+                </div>
+
+                <p>
+                    Loaded with cheese, pepperoni and delicious pizza sauce.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>Rs. 1,499</strong>
+
+                    <button onclick="addToCart(
+                        'Pepperoni Pizza',
+                        1499,
+                        'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=200&q=80'
+                    )">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOD 3 -->
+
+        <div class="food-card" data-category="chicken">
+
+            <div class="food-image">
+
+                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=600&q=80"
+                    alt="Crispy Chicken">
+
+                <button class="favorite-btn" onclick="toggleFavorite(this)">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <span class="discount">15% OFF</span>
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+                    <h3>Crispy Fried Chicken</h3>
+                    <span>⭐ 4.7</span>
+                </div>
+
+                <p>
+                    Golden crispy chicken served with fries and sauce.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>Rs. 1,050</strong>
+
+                    <button onclick="addToCart(
+                        'Crispy Fried Chicken',
+                        1050,
+                        'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=200&q=80'
+                    )">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOD 4 -->
+
+        <div class="food-card" data-category="dessert">
+
+            <div class="food-image">
+
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+                    alt="Chocolate Cake">
+
+                <button class="favorite-btn" onclick="toggleFavorite(this)">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+                    <h3>Chocolate Cake</h3>
+                    <span>⭐ 4.9</span>
+                </div>
+
+                <p>
+                    Rich chocolate cake with creamy chocolate topping.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>Rs. 699</strong>
+
+                    <button onclick="addToCart(
+                        'Chocolate Cake',
+                        699,
+                        'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=200&q=80'
+                    )">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOD 5 -->
+
+        <div class="food-card" data-category="drink">
+
+            <div class="food-image">
+
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=600&q=80"
+                    alt="Fresh Orange Juice">
+
+                <button class="favorite-btn" onclick="toggleFavorite(this)">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+                    <h3>Fresh Orange Juice</h3>
+                    <span>⭐ 4.6</span>
+                </div>
+
+                <p>
+                    Freshly squeezed orange juice, healthy and refreshing.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>Rs. 450</strong>
+
+                    <button onclick="addToCart(
+                        'Fresh Orange Juice',
+                        450,
+                        'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=200&q=80'
+                    )">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOD 6 -->
+
+        <div class="food-card" data-category="pizza">
+
+            <div class="food-image">
+
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80"
+                    alt="Veggie Pizza">
+
+                <button class="favorite-btn" onclick="toggleFavorite(this)">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <span class="discount">NEW</span>
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+                    <h3>Veggie Supreme Pizza</h3>
+                    <span>⭐ 4.8</span>
+                </div>
+
+                <p>
+                    Fresh vegetables, mozzarella cheese and special herbs.
+                </p>
+
+                <div class="food-bottom">
+
+                    <strong>Rs. 1,299</strong>
+
+                    <button onclick="addToCart(
+                        'Veggie Supreme Pizza',
+                        1299,
+                        'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=200&q=80'
+                    )">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features" id="about">
+
+    <div class="section-heading">
+
+        <p>WHY UMAIMA EATS HUB?</p>
+
+        <h2>Why Choose Us</h2>
+
+    </div>
+
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-motorcycle"></i>
+            </div>
+
+            <h3>Fast Delivery</h3>
+
+            <p>
+                Get your favorite food delivered quickly and safely.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+
+            <h3>Fresh Food</h3>
+
+            <p>
+                Every meal is freshly prepared with quality ingredients.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <h3>Best Quality</h3>
+
+            <p>
+                We partner with the best restaurants for amazing food.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= APP SECTION ================= -->
+
+<section class="app-section">
+
+    <div class="app-text">
+
+        <p>ORDER ONLINE</p>
+
+        <h2>
+            Food At Your
+            <span>Fingertips</span>
+        </h2>
+
+        <p>
+            Order your favorite food faster and easier with Umaima Eats Hub.
+        </p>
+
+        <div class="app-buttons">
+
+            <button>
+                <i class="fa-solid fa-bowl-food"></i>
+
+                <div>
+                    <small>ORDER FROM</small>
+                    Umaima Eats Hub
+                </div>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="app-emoji">
+        🍔📱🍕
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+
+            <div class="logo">
+                <i class="fa-solid fa-utensils"></i>
+                Umaima <span>Eats Hub</span>
+            </div>
+
+            <p>
+                Delicious food delivered straight to your door.
+                Order now and enjoy!
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About Us</a>
+
+        </div>
+
+
+        <div class="footer-box">
+
+            <h3>Contact</h3>
+
+            <p>📍 Karachi, Pakistan</p>
+            <p>📞 +92 300 1234567</p>
+            <p>✉ hello@umaimaeatshub.com</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Umaima Eats Hub. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+
+<div class="cart-sidebar" id="cart-sidebar">
+
+    <div class="cart-header">
+
+        <h2>
+            <i class="fa-solid fa-cart-shopping"></i>
+            Your Cart
+        </h2>
+
+        <button onclick="toggleCart()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <div id="cart-items">
+
+        <div class="empty-cart">
+
+            <i class="fa-solid fa-basket-shopping"></i>
+
+            <h3>Your cart is empty</h3>
+
+            <p>Add some delicious food!</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>Total</span>
+
+            <strong id="cart-total">Rs. 0</strong>
+
+        </div>
+
+
+        <button class="checkout-btn" onclick="checkout()">
+
+            Proceed to Checkout
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= NOTIFICATION ================= -->
+
+<div id="notification">
+    <i class="fa-solid fa-check"></i>
+    Added to cart!
+</div>
+
+
+<script src="script.js"></script>
+```
+
+</body>
+
+</html>
